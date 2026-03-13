@@ -42,7 +42,9 @@ public class DataLoader {
     	    	String line = scanner.nextLine();
     	    	
     	    	if(!skipFirst) {
+    	    		
     	    		List<Object> record = tempRecord.getRecordFromLine(line);
+    	    		
     	    		if(record != null) {
     	    			dv.getDataRaw().add(record);
     	    		}
