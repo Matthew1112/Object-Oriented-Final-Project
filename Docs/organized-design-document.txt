@@ -1,2 +1,3 @@
 - We added a Factory to create DebugManager. This allows the code to easily change how much should be logged without needing to manually change static variables in the DebugManager class.
 - we added a Factory to create ArrayList objects for TemperatureRecord. This allows the creation of object to be done seperately from the reading and splitting of the CSV line.
+-We added a Observer Pattern to Temperature Record that allows for DataViewer to subcribe to Temperature Record through an Interface so that Temperature Record can update DataViewer upon record creation and Data Loader would then only have to add Data Viewer to the list of Observers in Temperature Reecord.
