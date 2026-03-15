@@ -101,7 +101,7 @@ public class DataViewer implements DrawListener {
     }
 
     public void setSelectedCountry(String m_selectedCountry) {
-		this.m_selectedCountry = m_selectedCountry;
+		  this.m_selectedCountry = m_selectedCountry;
 	}
 
 	public Integer getSelectedEndYear() {
@@ -134,7 +134,7 @@ public class DataViewer implements DrawListener {
     
 
     public void setSelectedVisualization(String m_selectedVisualization) {
-		this.m_selectedVisualization = m_selectedVisualization;
+		  this.m_selectedVisualization = m_selectedVisualization;
 	}
 
 	public TreeMap<Integer, Double> getPlotMonthlyMaxValue() {

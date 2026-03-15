@@ -1,0 +1,278 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="uzHqpL4xyQZ006-Dzvgf">
+    <mxGraphModel dx="1489" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-1" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="Main" vertex="1">
+          <mxGeometry height="60" width="180" x="420" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-2" parent="ILcZ-Wcal2gNFkF9P4KU-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="+ main(String[] args): void" vertex="1">
+          <mxGeometry height="30" width="180" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-3" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="DataViewer" vertex="1">
+          <mxGeometry height="920" width="440" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-4" parent="ILcZ-Wcal2gNFkF9P4KU-3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="- DEFAULT_COUNTRY: String {static}&lt;div&gt;- VISUALIZATION_MODES: String[] {static}&lt;/div&gt;&lt;div&gt;- GUI_MODE_MAIN_MENU: int {static}&lt;/div&gt;&lt;div&gt;- GUI_MODE_DATA: int {static}&lt;/div&gt;&lt;div&gt;- m_dataRaw: List&amp;lt;List&amp;lt;Object&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;- m_dataStates: SortedSet&amp;lt;String&amp;gt;&lt;/div&gt;&lt;div&gt;- m_dataCountries: SortedSet&amp;lt;String&amp;gt;&lt;/div&gt;&lt;div&gt;- m_dataYears: SortedSet&amp;lt;Integer&amp;gt;&lt;/div&gt;&lt;div&gt;- m_selectedCountry: String&lt;/div&gt;&lt;div&gt;- m_selectedEndYear: Integer&lt;/div&gt;&lt;div&gt;- m_selectedState: String&lt;/div&gt;&lt;div&gt;- m_selectedStartYear: Integer&lt;/div&gt;&lt;div&gt;- m_selectedVisualization: String&lt;/div&gt;&lt;div&gt;- m_plotMonthlyMaxValue: TreeMap&amp;lt;Integer, Double&amp;gt;&lt;/div&gt;&lt;div&gt;- m_plotMonthlyMinValue: TreeMap&amp;lt;Integer, Double&amp;gt;&lt;/div&gt;&lt;div&gt;- m_guiMode: int&lt;/div&gt;&lt;div&gt;- m_plotData: TreeMap&amp;lt;Integer, SortedMap&amp;lt;Integer, Double&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;- drawManager: DrawManager&lt;/div&gt;&lt;div&gt;- loader: DataLoader&lt;/div&gt;&lt;div&gt;- debugManager: DebugManager&lt;/div&gt;&lt;div&gt;- plotData: PlotData&lt;/div&gt;&lt;div&gt;- tempRecord: TemperatureRecord&lt;/div&gt;" vertex="1">
+          <mxGeometry height="360" width="440" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-5" parent="ILcZ-Wcal2gNFkF9P4KU-3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="+ DataViewer(String dataFile)&lt;div&gt;+ getDataRaw(): List&amp;lt;List&amp;lt;Object&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;+ setDataRaw(List&amp;lt;List&amp;lt;Object&amp;gt;&amp;gt; m_dataRaw): void&lt;/div&gt;&lt;div&gt;+ getDataStates(): SortedSet&amp;lt;String&amp;gt;&lt;/div&gt;&lt;div&gt;+ setDataStates(SortedSet&amp;lt;String&amp;gt; m_dataStates): void&lt;/div&gt;&lt;div&gt;+ getDataCountries(): SortedSet&amp;lt;String&amp;gt;&lt;/div&gt;&lt;div&gt;+ setDataCountries(SortedSet&amp;lt;String&amp;gt; m_dataCountries): void&lt;/div&gt;&lt;div&gt;+ getDataYears(): SortedSet&amp;lt;Integer&amp;gt;&lt;/div&gt;&lt;div&gt;+ setDataYears(SortedSet&amp;lt;Integer&amp;gt; m_dataYears): void&lt;/div&gt;&lt;div&gt;+ getSelectedCountry(): String&lt;/div&gt;&lt;div&gt;+ getSelectedEndYear(): Integer&lt;/div&gt;&lt;div&gt;+ setSelectedEndYear(Integer m_selectedEndYear): void&lt;/div&gt;&lt;div&gt;+ getSelectedState(): String&lt;/div&gt;&lt;div&gt;+ setSelectedState(String m_selectedState): void&lt;/div&gt;&lt;div&gt;+ getSelectedStartYear(): Integer&lt;/div&gt;&lt;div&gt;+ setSelectedStartYear(Integer m_selectedStartYear): void&lt;/div&gt;&lt;div&gt;+ getSelectedVisualization(): String&lt;/div&gt;&lt;div&gt;+ getPlotMonthlyMaxValue(): TreeMap&amp;lt;Integer, Double&amp;gt;&lt;/div&gt;&lt;div&gt;+ setPlotMonthlyMaxValue(TreeMap&amp;lt;Integer, Double&amp;gt; m_plotMonthlyMaxValue): void&lt;/div&gt;&lt;div&gt;+ getPlotMonthlyMinValue(): TreeMap&amp;lt;Integer, Double&amp;gt;&lt;/div&gt;&lt;div&gt;+ setPlotMonthlyMinValue(TreeMap&amp;lt;Integer, Double&amp;gt; m_plotMonthlyMinValue): void&lt;/div&gt;&lt;div&gt;+ getPlotData(): TreeMap&amp;lt;Integer, SortedMap&amp;lt;Integer, Double&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;+ setPlotData(TreeMap&amp;lt;Integer, SortedMap&amp;lt;Integer, Double&amp;gt;&amp;gt; m_plotData): void&lt;/div&gt;&lt;div&gt;+ update(): void&lt;/div&gt;&lt;div&gt;+ keyPressed(int key): void&lt;/div&gt;&lt;div&gt;+ keyReleased(int key): void&lt;/div&gt;&lt;div&gt;+ keyTyped(char key): void&lt;/div&gt;&lt;div&gt;+ mouseClicked(double x, double y): void&lt;/div&gt;&lt;div&gt;+ mouseDragged(double x, double y): void&lt;/div&gt;&lt;div&gt;+ mousePressed(double x, double y): void&lt;/div&gt;&lt;div&gt;+ mouseReleased(double x, double y): void&lt;/div&gt;&lt;div&gt;+onTemperatureRecord(List&amp;lt;Object&amp;gt; record): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="510" width="440" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-6" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="DebugManagerFactory" vertex="1">
+          <mxGeometry height="120" width="260" x="610" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-7" parent="ILcZ-Wcal2gNFkF9P4KU-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="+ createDefault(): DebugManager {static}&lt;div&gt;+ createSilent(): DebugManager {static}&lt;/div&gt;&lt;div&gt;+ createVerbose(): DebugManager {static}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-8" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="DebugManager" vertex="1">
+          <mxGeometry height="195" width="260" x="990" y="32.5" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-9" parent="ILcZ-Wcal2gNFkF9P4KU-8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="- DO_TRACE: boolean&lt;div&gt;- DO_DEBUG: boolean&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-10" parent="ILcZ-Wcal2gNFkF9P4KU-8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="+ DebugManager(boolean doTrace, boolean doDebug)&lt;div&gt;+ trace(String format, Object... args): void&lt;/div&gt;&lt;div&gt;+ info(String format, Object... args): void&lt;/div&gt;&lt;div&gt;+ error(String format, Object... args): void&lt;/div&gt;&lt;div&gt;+ debug(String format, Object... args): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="260" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-11" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="ILcZ-Wcal2gNFkF9P4KU-34">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-12" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="DataLoader" vertex="1">
+          <mxGeometry height="170" width="300" x="750" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-13" parent="ILcZ-Wcal2gNFkF9P4KU-12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="- m_dataFile: String&lt;div&gt;- dv: DataViewer&lt;/div&gt;&lt;div&gt;- tempRecord: TemperatureRecord&lt;/div&gt;&lt;div&gt;- debugManager: DebugManager&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="300" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-14" parent="ILcZ-Wcal2gNFkF9P4KU-12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="+ DataLoader(DataViewer dv, String dataFile, TemperatureRecord tempRecord, DebugManager debugManager)&lt;div&gt;+ loadData(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="300" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-15" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="TemperatureRecord" vertex="1">
+          <mxGeometry height="270" width="320" x="930" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-16" parent="ILcZ-Wcal2gNFkF9P4KU-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="- FILE_COUNTRY_IDX: int {static}&lt;div&gt;- FILE_DATE_IDX: int {static}&lt;/div&gt;&lt;div&gt;- FILE_NUM_COLUMNS: int {static}&lt;/div&gt;&lt;div&gt;- FILE_STATE_IDX: int {static}&lt;/div&gt;&lt;div&gt;- FILE_TEMPERATURE_IDX: int {static}&lt;/div&gt;&lt;div&gt;-private List&amp;lt;TemperatureObserver&amp;gt; observers&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="320" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-17" parent="ILcZ-Wcal2gNFkF9P4KU-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="+ TemperatureRecord(DataViewer dv, DebugManager debugManager)&lt;div&gt;- parseYear(String dateString): Integer&lt;/div&gt;&lt;div&gt;- parseMonth(String dateString): Integer&lt;/div&gt;&lt;div&gt;+ getRecordFromLine(String line): List&amp;lt;Object&amp;gt;&lt;/div&gt;&lt;div&gt;+addObserver(TemperatureObserver observer): void&lt;/div&gt;&lt;div&gt;+removeObserver(TemperatureObserver observer): void&lt;/div&gt;&lt;div&gt;-notifyObserver(List&amp;lt;Object&amp;gt; record): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="320" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-18" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="DrawManager" vertex="1">
+          <mxGeometry height="450" width="300" x="580" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-19" parent="ILcZ-Wcal2gNFkF9P4KU-18" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="- VISUALIZATION_MODES: String[] {static}&lt;div&gt;- DATA_WINDOW_BORDER: double {static}&lt;/div&gt;&lt;div&gt;- EXTREMA_PCT: double {static}&lt;/div&gt;&lt;div&gt;- MENU_STARTING_X: double {static}&lt;/div&gt;&lt;div&gt;- MENU_STARTING_Y: double {static}&lt;/div&gt;&lt;div&gt;- MENU_ITEM_SPACING: double {static}&lt;/div&gt;&lt;div&gt;- MONTH_NAMES: String[] {static}&lt;/div&gt;&lt;div&gt;- TEMPERATURE_MAX_C: double {static}&lt;/div&gt;&lt;div&gt;- TEMPERATURE_MIN_C: double {static}&lt;/div&gt;&lt;div&gt;- TEMPERATURE_RANGE: double {static}&lt;/div&gt;&lt;div&gt;- WINDOW_HEIGHT: int {static}&lt;/div&gt;&lt;div&gt;- WINDOW_TITLE: String {static}&lt;/div&gt;&lt;div&gt;- WINDOW_WIDTH: int {static}&lt;/div&gt;&lt;div&gt;- m_window&lt;/div&gt;&lt;div&gt;- debugManager: DebugManager&lt;/div&gt;&lt;div&gt;- dv: DataViewer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="300" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-20" parent="ILcZ-Wcal2gNFkF9P4KU-18" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="+ DrawManager(DataViewer dv, DrawListener listener, DebugManager debugManager)&lt;div&gt;+ getWindow()&lt;/div&gt;&lt;div&gt;+ drawMainMenu(): void&lt;/div&gt;&lt;div&gt;- getDataColor(Double value, boolean doGrayscale)&lt;/div&gt;&lt;div&gt;+ drawData(TreeMap&amp;lt;Integer, SortedMap&amp;lt;Integer, Double&amp;gt;&amp;gt;): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="300" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-21" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endSize=12;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" target="ILcZ-Wcal2gNFkF9P4KU-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-22" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-4" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="ILcZ-Wcal2gNFkF9P4KU-8" value="">
+          <mxGeometry relative="1" x="0.129" y="30" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="900" y="210" />
+              <mxPoint x="900" y="170" />
+            </Array>
+            <mxPoint x="480" y="530" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-23" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-3" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="ILcZ-Wcal2gNFkF9P4KU-12" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="395" />
+              <mxPoint x="550" y="395" />
+            </Array>
+            <mxPoint x="480" y="390" as="sourcePoint" />
+            <mxPoint x="770" y="297.52882352941174" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-24" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-3" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="ILcZ-Wcal2gNFkF9P4KU-18" value="">
+          <mxGeometry relative="1" x="0.0769" y="25" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="500" y="925" />
+              <mxPoint x="500" y="925" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-25" edge="1" parent="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="ILcZ-Wcal2gNFkF9P4KU-29" value="">
+          <mxGeometry relative="1" x="0.3158" y="15" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="260" y="1060" />
+              <mxPoint x="260" y="1060" />
+            </Array>
+            <mxPoint x="260" y="1000" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-26" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endSize=12;" target="ILcZ-Wcal2gNFkF9P4KU-8" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="250" />
+              <mxPoint x="1050" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-27" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endSize=12;" target="ILcZ-Wcal2gNFkF9P4KU-8" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1120" y="430" />
+              <mxPoint x="1120" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-28" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endSize=12;" target="ILcZ-Wcal2gNFkF9P4KU-8" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1330" y="965" />
+              <mxPoint x="1330" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-29" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="PlotData" vertex="1">
+          <mxGeometry height="150" width="300" x="190" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-30" parent="ILcZ-Wcal2gNFkF9P4KU-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="- RECORD_TEMPERATURE_IDX: int {static}&lt;div&gt;- RECORD_MONTH_IDX: int {static}&lt;/div&gt;&lt;div&gt;- RECORD_STATE_IDX: int {static}&lt;/div&gt;&lt;div&gt;- RECORD_YEAR_IDX: int {static}&lt;/div&gt;&lt;div&gt;- dv: DataViewer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="300" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-31" parent="ILcZ-Wcal2gNFkF9P4KU-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;whiteSpace=wrap;html=1;" value="+ PlotData(DataViewer dv)&lt;div&gt;+ updatePlotData(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="300" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-32" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-6" style="endArrow=classic;html=1;rounded=0;dashed=1;" target="ILcZ-Wcal2gNFkF9P4KU-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="720" y="520" as="sourcePoint" />
+            <mxPoint x="770" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-33" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ILcZ-Wcal2gNFkF9P4KU-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="550" />
+              <mxPoint x="900" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-34" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="TemperatureRecordFactory" vertex="1">
+          <mxGeometry height="80" width="220" x="680" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-35" parent="ILcZ-Wcal2gNFkF9P4KU-34" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="+ createRecord(String line): TemperatureRecord" vertex="1">
+          <mxGeometry height="50" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-36" edge="1" parent="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="550" />
+              <mxPoint x="580" y="550" />
+            </Array>
+            <mxPoint x="480" y="550" as="sourcePoint" />
+            <mxPoint x="680" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-37" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-3" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="ILcZ-Wcal2gNFkF9P4KU-6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="510" y="130" />
+              <mxPoint x="510" y="130" />
+            </Array>
+            <mxPoint x="580" y="280" as="sourcePoint" />
+            <mxPoint x="850" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-38" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;TemperatureObserver&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="300" x="540" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-39" parent="ILcZ-Wcal2gNFkF9P4KU-38" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="+ onTemperatureRecord(List&amp;lt;Object&amp;gt; record): void" vertex="1">
+          <mxGeometry height="30" width="290" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-40" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-5" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="ILcZ-Wcal2gNFkF9P4KU-39" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points" />
+            <mxPoint x="520" y="550" as="sourcePoint" />
+            <mxPoint x="680" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-41" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-38" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=-0.011;entryY=0.099;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="ILcZ-Wcal2gNFkF9P4KU-17" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="480" y="590" as="sourcePoint" />
+            <mxPoint x="830" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-43" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Command" vertex="1">
+          <mxGeometry height="52" width="200" x="30" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-44" parent="ILcZ-Wcal2gNFkF9P4KU-43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ exccute" vertex="1">
+          <mxGeometry height="26" width="200" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-47" edge="1" parent="1" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.376;entryY=-0.014;entryDx=0;entryDy=0;entryPerimeter=0;" target="ILcZ-Wcal2gNFkF9P4KU-43" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="110" y="1000" as="sourcePoint" />
+            <mxPoint x="200" y="1180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-48" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="SetCountryCommand()" vertex="1">
+          <mxGeometry height="104" width="160" x="30" y="1500" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-49" parent="ILcZ-Wcal2gNFkF9P4KU-48" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="-dv: DataViewer&lt;div&gt;-loader: DataLoader&lt;/div&gt;" vertex="1">
+          <mxGeometry height="44" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-50" parent="ILcZ-Wcal2gNFkF9P4KU-48" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="160" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-51" parent="ILcZ-Wcal2gNFkF9P4KU-48" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+execute()" vertex="1">
+          <mxGeometry height="26" width="160" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-52" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="SetCountryCommand()" vertex="1">
+          <mxGeometry height="104" width="160" x="230" y="1510" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-53" parent="ILcZ-Wcal2gNFkF9P4KU-52" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="-dv: DataViewer&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="44" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-54" parent="ILcZ-Wcal2gNFkF9P4KU-52" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="160" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-55" parent="ILcZ-Wcal2gNFkF9P4KU-52" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+execute()" vertex="1">
+          <mxGeometry height="26" width="160" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-56" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="SetCountryCommand()" vertex="1">
+          <mxGeometry height="104" width="160" x="420" y="1510" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-57" parent="ILcZ-Wcal2gNFkF9P4KU-56" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="-dv: DataViewer&lt;div&gt;-plotData: PLotData&lt;/div&gt;" vertex="1">
+          <mxGeometry height="44" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-58" parent="ILcZ-Wcal2gNFkF9P4KU-56" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="160" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-59" parent="ILcZ-Wcal2gNFkF9P4KU-56" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+execute()" vertex="1">
+          <mxGeometry height="26" width="160" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-60" edge="1" parent="1" source="ILcZ-Wcal2gNFkF9P4KU-44" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.628;entryY=-0.012;entryDx=0;entryDy=0;entryPerimeter=0;" target="ILcZ-Wcal2gNFkF9P4KU-48" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="110" y="1760" as="sourcePoint" />
+            <mxPoint x="270" y="1760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-61" edge="1" parent="1" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.578;entryY=-0.01;entryDx=0;entryDy=0;entryPerimeter=0;" target="ILcZ-Wcal2gNFkF9P4KU-52" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="1310" />
+            </Array>
+            <mxPoint x="230" y="1310" as="sourcePoint" />
+            <mxPoint x="390" y="1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILcZ-Wcal2gNFkF9P4KU-62" edge="1" parent="1" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.578;entryY=-0.01;entryDx=0;entryDy=0;entryPerimeter=0;" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="1311" />
+            </Array>
+            <mxPoint x="230" y="1311" as="sourcePoint" />
+            <mxPoint x="502" y="1510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
