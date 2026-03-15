@@ -100,7 +100,11 @@ public class DataViewer implements DrawListener {
         return m_selectedCountry;
     }
 
-    public Integer getSelectedEndYear() {
+    public void setSelectedCountry(String m_selectedCountry) {
+		this.m_selectedCountry = m_selectedCountry;
+	}
+
+	public Integer getSelectedEndYear() {
         return m_selectedEndYear;
     }
 
@@ -127,8 +131,13 @@ public class DataViewer implements DrawListener {
     public String getSelectedVisualization() {
         return m_selectedVisualization;
     }
+    
 
-    public TreeMap<Integer, Double> getPlotMonthlyMaxValue() {
+    public void setSelectedVisualization(String m_selectedVisualization) {
+		this.m_selectedVisualization = m_selectedVisualization;
+	}
+
+	public TreeMap<Integer, Double> getPlotMonthlyMaxValue() {
         return m_plotMonthlyMaxValue;
     }
 
@@ -176,112 +185,66 @@ public class DataViewer implements DrawListener {
         boolean needsUpdate = false;
         boolean needsUpdatePlotData = false;
         debugManager.trace("key pressed '%c'", (char) key);
-        // regardless of draw mode, 'Q' or 'q' means quit:
+
+        // Quit immediately
         if (key == 'Q') {
             System.out.println("Bye");
             System.exit(0);
-        } else if (m_guiMode == GUI_MODE_MAIN_MENU) {
-            if (key == 'P') {
-                // plot the data
-                m_guiMode = GUI_MODE_DATA;
-                if (m_plotData == null) {
-                    // first time going to render data need to generate the plot data
-                    needsUpdatePlotData = true;
-                }
-                needsUpdate = true;
-            } else if (key == 'C') {
-                // set the Country
-                Object selectedValue = JOptionPane.showInputDialog(null, "Choose a Country", "Input", JOptionPane.INFORMATION_MESSAGE, null, m_dataCountries.toArray(), m_selectedCountry);
+        }
 
-                if (selectedValue != null) {
-                    debugManager.info("User selected: '%s'", selectedValue);
-                    if (!selectedValue.equals(m_selectedCountry)) {
-                        // change in data
-                        m_selectedCountry = (String) selectedValue;
-                        try {
-                            loader.loadData();
-                        } catch (FileNotFoundException e) {
-                            // convert to a runtime exception since
-                            // we can't add throws to this method
-                            throw new RuntimeException(e);
-                        }
-                        needsUpdate = true;
-                        needsUpdatePlotData = true;
-                    }
-                }
-            } else if (key == 'T') {
-                // set the state
-                Object selectedValue = JOptionPane.showInputDialog(null, "Choose a State", "Input", JOptionPane.INFORMATION_MESSAGE, null, m_dataStates.toArray(), m_selectedState);
+        Command cmd = null;
 
-                if (selectedValue != null) {
-                    debugManager.info("User selected: '%s'", selectedValue);
-                    if (!selectedValue.equals(m_selectedState)) {
-                        // change in data
-                        m_selectedState = (String) selectedValue;
-                        needsUpdate = true;
-                        needsUpdatePlotData = true;
-                    }
-                }
-            } else if (key == 'S') {
-                // set the start year
-                Object selectedValue = JOptionPane.showInputDialog(null, "Choose the start year", "Input", JOptionPane.INFORMATION_MESSAGE, null, m_dataYears.toArray(), m_selectedStartYear);
-
-                if (selectedValue != null) {
-                    debugManager.info("User seleted: '%s'", selectedValue);
-                    Integer year = (Integer) selectedValue;
-                    if (year.compareTo(m_selectedEndYear) > 0) {
-                        debugManager.error("new start year (%d) must not be after end year (%d)", year, m_selectedEndYear);
-                    } else {
-                        if (!m_selectedStartYear.equals(year)) {
-                            m_selectedStartYear = year;
-                            needsUpdate = true;
-                            needsUpdatePlotData = true;
-                        }
-                    }
-                }
-            } else if (key == 'E') {
-                // set the end year
-                Object selectedValue = JOptionPane.showInputDialog(null, "Choose the end year", "Input", JOptionPane.INFORMATION_MESSAGE, null, m_dataYears.toArray(), m_selectedEndYear);
-
-                if (selectedValue != null) {
-                    debugManager.info("User seleted: '%s'", selectedValue);
-                    Integer year = (Integer) selectedValue;
-                    if (year.compareTo(m_selectedStartYear) < 0) {
-                        debugManager.error("new end year (%d) must be not be before start year (%d)", year, m_selectedStartYear);
-                    } else {
-                        if (!m_selectedEndYear.equals(year)) {
-                            m_selectedEndYear = year;
-                            needsUpdate = true;
-                            needsUpdatePlotData = true;
-                        }
-                    }
-                }
-            } else if (key == 'V') {
-                // set the visualization
-                Object selectedValue = JOptionPane.showInputDialog(null, "Choose the visualization mode", "Input", JOptionPane.INFORMATION_MESSAGE, null, VISUALIZATION_MODES, m_selectedVisualization);
-
-                if (selectedValue != null) {
-                    debugManager.info("User seleted: '%s'", selectedValue);
-                    String visualization = (String) selectedValue;
-                    if (!m_selectedVisualization.equals(visualization)) {
-                        m_selectedVisualization = visualization;
-                        needsUpdate = true;
-                    }
-                }
+        if (m_guiMode == GUI_MODE_MAIN_MENU) {
+            switch (key) {
+                case 'P':
+                    // Switch to data view
+                    m_guiMode = GUI_MODE_DATA;
+                    needsUpdate = true;
+                    needsUpdatePlotData = (m_plotData == null);
+                    break;
+                case 'C':
+                    cmd = new SetCountryCommand(this, loader, debugManager);
+                    break;
+                case 'T':
+                    cmd = new SetStateCommand(this, debugManager);
+                    break;
+                case 'S':
+                    cmd = new SetStartYearCommand(this, debugManager);
+                    break;
+                case 'E':
+                    cmd = new SetEndYearCommand(this, debugManager);
+                    break;
+                case 'V':
+                    cmd = new SetVisualizationCommand(this, debugManager);
+                    break;
+                default:
+                    debugManager.trace("No action for key '%c'", (char) key);
             }
-
         } else if (m_guiMode == GUI_MODE_DATA) {
             if (key == 'M') {
+                // Go back to main menu
                 m_guiMode = GUI_MODE_MAIN_MENU;
                 needsUpdate = true;
             }
         } else {
             throw new IllegalStateException(String.format("unexpected mode: %d", m_guiMode));
         }
+
+        // Execute the command if one was created
+        if (cmd != null) {
+            cmd.execute();
+            needsUpdate = true;
+            // Commands that affect the plot
+            if (cmd instanceof SetCountryCommand || cmd instanceof SetStateCommand
+                || cmd instanceof SetStartYearCommand || cmd instanceof SetEndYearCommand) {
+                needsUpdatePlotData = true;
+            }
+        }
+
         if (needsUpdatePlotData) {
-            // something changed with the data that needs to be plotted
             plotData.updatePlotData();
         }
+
         if (needsUpdate) {
             update();
         }
