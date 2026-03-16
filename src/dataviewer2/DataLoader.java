@@ -25,6 +25,8 @@ public class DataLoader {
     	this.dv = dv;
     	this.tempRecord = tempRecord;
     	this.debugManager = debugManager;
+    	
+    	tempRecord.addObserver(dv);
 	}
 
 	public void loadData() throws FileNotFoundException {
@@ -42,12 +44,14 @@ public class DataLoader {
     	    	String line = scanner.nextLine();
     	    	
     	    	if(!skipFirst) {
+    	    		//Observer allows for notification of Data Viewer from TemperatureRecord/TemperatureObserver
     	    		
-    	    		List<Object> record = tempRecord.getRecordFromLine(line);
+    	    		//List<Object> record = tempRecord.getRecordFromLine(line);
     	    		
-    	    		if(record != null) {
-    	    			dv.getDataRaw().add(record);
-    	    		}
+    	    		tempRecord.getRecordFromLine(line);
+    	    		//if(record != null) {
+    	    			//dv.getDataRaw().add(record);
+    	    		//}
     	    	}
     	    	else {
     	    		skipFirst = false;
