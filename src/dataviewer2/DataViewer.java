@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 import edu.du.dudraw.DrawListener;
 
-public class DataViewer implements DrawListener {
+public class DataViewer implements DrawListener, TemperatureObserver {
 
     private final static String DEFAULT_COUNTRY = "United States";
     private final static String[] VISUALIZATION_MODES = {"Raw", "Extrema (within 10% of min/max)"};
@@ -159,6 +159,14 @@ public class DataViewer implements DrawListener {
 
     public void setPlotData(TreeMap<Integer, SortedMap<Integer, Double>> m_plotData) {
         this.m_plotData = m_plotData;
+    }
+    
+    @Override
+    public void onTemperatureRecord(List<Object> record, String state, Integer year) {
+    	getDataStates().add(state);
+    	getDataYears().add(year);
+    	
+    	getDataRaw().add(record);
     }
 
     @Override

@@ -9,7 +9,7 @@ public class TemperatureRecordFactory {
 	private final static int FILE_STATE_IDX = 3;
 	private final static int FILE_TEMPERATURE_IDX = 1;
 
-	public List<Object> createRecord(TemperatureRecord record, List<String> rawValues, DataViewer dv) {
+	public List<Object> createRecord(TemperatureRecord record, List<String> rawValues) {
 		// Parse these into more useful objects than String
     	List<Object> values = new ArrayList<Object>(4);
     	
@@ -32,8 +32,9 @@ public class TemperatureRecordFactory {
     	//values.add(rawValues.get(FILE_COUNTRY_IDX));
     	
     	// if we got here, add the state to the list of states
-    	dv.getDataStates().add(rawValues.get(FILE_STATE_IDX));
-    	dv.getDataYears().add(year);
+    	//dv.getDataStates().add(rawValues.get(FILE_STATE_IDX));
+    	//dv.getDataYears().add(year);
     	return values;
 	}
+	
 }
