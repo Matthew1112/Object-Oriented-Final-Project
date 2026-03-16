@@ -7,9 +7,11 @@ import java.util.SortedSet;
 
 public class TemperatureRecord {
 	
+	
 	private DebugManager debugManager;
 	private DataViewer dv;
 	private TemperatureRecordFactory factory;
+	private List<TemperatureObserver> observers = new ArrayList<>();
 	
 	private final static int FILE_COUNTRY_IDX = 4;
 	private final static int FILE_NUM_COLUMNS = 5;
@@ -100,7 +102,16 @@ public class TemperatureRecord {
         }
         try {
         	
-        	return factory.createRecord(this, rawValues, dv);
+        	List<Object> record = factory.createRecord(this, rawValues, dv);
+        	
+        	if(record != null) {
+        		
+        		Integer year = (Integer)record.get(0);
+        		String state = (String)record.get(3);
+        		notifyObservers(record, state, year);
+        	}
+        	
+        	return record;
      
         }
         catch(NumberFormatException e) {
@@ -109,4 +120,15 @@ public class TemperatureRecord {
         }
     }
     
+    public void addObserver(TemperatureObserver observer) {
+    	observers.add(observer);
+    }
+    public void removeObserver(TemperatureObserver observer) {
+    	observers.remove(observer);
+    }
+    public void notifyObservers(List<Object> record, String state, Integer year) {
+    	for(TemperatureObserver o: observers) {
+    		o.onTemperatureRecord(record, state, year);
+    	}
+    }
 }

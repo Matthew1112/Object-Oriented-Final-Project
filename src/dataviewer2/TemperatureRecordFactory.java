@@ -32,8 +32,9 @@ public class TemperatureRecordFactory {
     	//values.add(rawValues.get(FILE_COUNTRY_IDX));
     	
     	// if we got here, add the state to the list of states
-    	dv.getDataStates().add(rawValues.get(FILE_STATE_IDX));
-    	dv.getDataYears().add(year);
+    	//dv.getDataStates().add(rawValues.get(FILE_STATE_IDX));
+    	//dv.getDataYears().add(year);
     	return values;
 	}
+	
 }
